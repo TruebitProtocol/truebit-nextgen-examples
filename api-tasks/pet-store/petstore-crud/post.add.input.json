@@ -1,0 +1,19 @@
+{
+  "taskId": "api_12e2f886c4ba963ae52c5dfa12af5cd3d43d5e53ae5a46a7d254991b874dac96/1.0.0",
+  "input": {
+    "path": "/store/order",
+    "method": "POST",
+    "body": {
+      "id": 2,
+      "petId": 198772,
+      "quantity": 7,
+      "shipDate": "2077-08-24T14:15:22Z",
+      "status": "approved",
+      "complete": true
+    }
+  },
+  "reward": "15",
+  "requiredSolutions": 1,
+  "totalSolutions": 1,
+  "executionTimeout": 10000
+}

@@ -1,0 +1,52 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Aws test manifest <ts>",
+    "version": "1.0.0",
+    "description": "Helloworld aws api to test aws-signature auth"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:9999",
+      "description": "Demo Bookstore Server"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "get OK",
+        "description": "get OK",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "summary": "post test",
+        "description": "post test",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "test": {
+                    "type": "string",
+                    "example": "test"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "post test"
+          }
+        }
+      }
+    }
+  }
+}

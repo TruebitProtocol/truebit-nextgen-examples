@@ -1,0 +1,14 @@
+{
+  "taskId": "api_e0e473b9ec444939eda51eb47ab9eea1008324a30a9af79d61e25eb83f0af681/1.0.0",
+  "input": {
+    "path": "/anything/{Id}",
+    "method": "GET",
+    "params": {
+      "Id": 2
+    }
+  },
+  "reward": "15",
+  "requiredSolutions": 1,
+  "totalSolutions": 1,
+  "executionTimeout": 10000
+}
