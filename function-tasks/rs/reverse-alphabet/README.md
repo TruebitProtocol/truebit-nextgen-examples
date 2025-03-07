@@ -1,10 +1,11 @@
-# Initialize the Javascript node task
+# Rust toolchain installation
 
-1. Open a terminal, move to this example main directory and execute the following command:
-npm i
+Open a terminal and execute the following command-line commands one by one:
 
-2. Invoke rollup to create a single source file that embeds used node.js libraries:
-npx rollup -c
+1. curl https://sh.rustup.rs -sSf | sh
+2. source "$HOME/.cargo/env"
+3. rustup default 1.78
+4. rustup target add wasm32-wasip1
 
 # Build and Start the example task
 
@@ -16,7 +17,7 @@ Open a terminal, move to the root directory where you installed the examples and
 
 ## Build command
 
-1. truebit build truebit-nextgen-examples/function-tasks/js/reverse-alphabet/dist -l js
+1. truebit build truebit-nextgen-examples/function-tasks/rs/reverse-alphabet -l rs
 
 ## Build results
 
@@ -29,4 +30,3 @@ You'll get a [TaskId] to use with the Start command.
 ## Task result
 
 kjihgfedcba
-

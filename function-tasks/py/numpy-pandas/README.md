@@ -4,15 +4,15 @@ This example demonstrates how to utilize Numpy and Pandas within a Python functi
 
 # Build and Start the example task
 
-Open a terminal, move to the Truebit CLI main directory and execute the following Build and Start command-line commands in sequence:
+Open a terminal, move to the root directory where you installed the examples and execute the following Build and Start command-line commands in sequence:
 
 ## Prerequisites
 
-1. Truebit CLI correctly installed.
+1. Truebit CLI correctly installed; the `truebit` command works.
 
 ## Build command
 
-1. truebit build examples/py/numpy-pandas/ -l py
+1. truebit build truebit-nextgen-examples/function-tasks/py/numpy-pandas/src -l py
 
 ## Build results
 

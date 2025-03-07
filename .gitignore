@@ -1,0 +1,6 @@
+build/
+target/
+node_modules/
+Cargo.lock
+config.json
+task.wasm

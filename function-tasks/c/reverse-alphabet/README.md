@@ -10,15 +10,15 @@ Open a terminal and execute the following command-line commands one by one:
 
 # Build and Start the example task
 
-Open a terminal, move to the Truebit CLI main directory and execute the following Build and Start command-line commands in sequence:
+Open a terminal, move to the root directory where you installed the examples and execute the following Build and Start command-line commands in sequence:
 
 ## Prerequisites
 
-1. Truebit CLI correctly installed.
+1. Truebit CLI correctly installed; the `truebit` command works.
 
 ## Build command
 
-1. truebit build examples/c/reverse_alphabetC/ -l c
+1. truebit build truebit-nextgen-examples/function-tasks/c/reverse-alphabet -l c
 
 ## Build results
 

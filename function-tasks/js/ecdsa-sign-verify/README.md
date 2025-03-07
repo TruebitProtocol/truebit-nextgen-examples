@@ -12,15 +12,15 @@ npx rollup -c
 
 # Build and Start the example task
 
-Move to the Truebit CLI main directory and execute the following Build and Start command-line commands in sequence:
+Open a terminal, move to the root directory where you installed the examples and execute the following Build and Start command-line commands in sequence:
 
 ## Prerequisites
 
-1. Truebit CLI correctly installed.
+1. Truebit CLI correctly installed; the `truebit` command works.
 
 ## Build command
 
-1. truebit build examples/js/ecdsa-sign-verify/ -l js
+1. truebit build truebit-nextgen-examples/function-tasks/js/ecdsa-sign-verify/dist -l js
 
 ## Build results
 
@@ -28,7 +28,7 @@ You'll get a [TaskId] to use with the Start command.
 
 ## Start command
 
-1. truebit start [TaskId] "$(examples/js/ecdsa-sign-verify/input.txt)"
+1. truebit start [TaskId] "$(cat truebit-nextgen-examples/function-tasks/js/ecdsa-sign-verify/input.txt)"
 
 ## Task result
 
