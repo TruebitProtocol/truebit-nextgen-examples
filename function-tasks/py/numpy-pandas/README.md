@@ -20,7 +20,7 @@ You'll get a [TaskId] to use with the Start command.
 
 ## Start command
 
-1. truebit start [TaskId] data/frame1.csv
+1. truebit start [TaskId] "data/frame1.csv"
 
 ## Task result
 
