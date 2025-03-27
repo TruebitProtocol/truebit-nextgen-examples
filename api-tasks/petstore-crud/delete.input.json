@@ -1,5 +1,6 @@
 {
-  "taskId": "api_96d043f233123c4879f6d21a2c393cdbb597ddb938b2afc7ed069f2de0f9665c/1.0.0",
+  "namespace": "namespace1",
+  "taskname": "api3",
   "input": {
     "path": "/store/order/{orderId}",
     "method": "DELETE",
@@ -7,8 +8,8 @@
       "orderId": 2
     }
   },
-  "reward": "15",
   "requiredSolutions": 1,
   "totalSolutions": 1,
-  "executionTimeout": 10000
+  "executionTimeout": 10000,
+  "async": true
 }
