@@ -1,5 +1,6 @@
 {
-  "taskId": "api_12e2f886c4ba963ae52c5dfa12af5cd3d43d5e53ae5a46a7d254991b874dac96/1.0.0",
+  "namespace": "namespace1",
+  "taskName": "api3",
   "input": {
     "path": "/store/order",
     "method": "POST",
@@ -12,8 +13,6 @@
       "complete": true
     }
   },
-  "reward": "15",
-  "requiredSolutions": 1,
-  "totalSolutions": 1,
-  "executionTimeout": 10000
+  "executionTimeout": 10000,
+  "async": false
 }
