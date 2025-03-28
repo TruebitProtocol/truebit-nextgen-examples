@@ -1,6 +1,6 @@
 {
   "namespace": "namespace1",
-  "taskname": "api3",
+  "taskName": "api3",
   "input": {
     "path": "/store/order/{orderId}",
     "method": "GET",
@@ -8,8 +8,6 @@
       "orderId": 2
     }
   },
-  "requiredSolutions": 1,
-  "totalSolutions": 1,
   "executionTimeout": 10000,
-  "async": true
+  "async": false
 }
