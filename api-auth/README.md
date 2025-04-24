@@ -38,7 +38,7 @@ npx truebit api-auth <namespace> <taskname> <taskId> aws-signature "username:<us
 
 * start-api command:
 ```
-npx truebit start-api aws-signature/aws-signature.manifest.json aws-signature/aws-signature.input.json aws-signature accessKey:<key>,secretKey:<key>
+npx truebit start-api aws-signature/aws-signature.manifest.json aws-signature/aws-signature.input.json aws-signature 'accessKey:<key>,secretKey:<key>'
 ```
 
 * deploy command:
