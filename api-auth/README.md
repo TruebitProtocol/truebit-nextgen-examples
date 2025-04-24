@@ -3,46 +3,46 @@
 
 * start-api command:
 ```
-npx truebit start-api custom-header/custom-header.manifest.json custom-header/custom-header.input.json custom-header 'token:password'
+ truebit start-api api-auth/custom-header/custom-header.manifest.json api-auth/custom-header/custom-header.input.json custom-header 'token:password'
 ```
 
 * deploy command:
 ```
-npx truebit create-api custom-header/custom-header.manifest.json
+ truebit create-api api-auth/custom-header/custom-header.manifest.json
 
-npx truebit deploy <namespace> <taskname> --taskId <taskId>
+ truebit deploy <namespace> <taskname> --taskId <taskId>
 
-npx truebit api-auth <namespace> <taskname> <taskId> aws-signature "username:<your-username>,password:<your-password>"
+ truebit api-auth <namespace> <taskname> <taskId> aws-signature "username:<your-username>,password:<your-password>"
 ```
 
 # basic-auth:
 
 * start-api command:
 ```
-npx truebit start-api basic-auth/basic-auth.manifest.json basic-auth/basic-auth.input.json basic-auth 'username:foo,password:bar'
+ truebit start-api api-auth/basic-auth/basic-auth.manifest.json api-auth/basic-auth/basic-auth.input.json basic-auth 'username:foo,password:bar'
 ```
 
 * deploy command:
 ```
-npx truebit create-api basic-auth/basic-auth.manifest.json
+ truebit create-api api-auth/basic-auth/basic-auth.manifest.json
 
-npx truebit deploy <namespace> <taskname> --taskId <taskId>
+ truebit deploy <namespace> <taskname> --taskId <taskId>
 
-npx truebit api-auth <namespace> <taskname> <taskId> aws-signature "username:<your-username>,password:<your-password>"
+ truebit api-auth <namespace> <taskname> <taskId> aws-signature "username:<your-username>,password:<your-password>"
 ```
 
 # aws-signature:
 
 * start-api command:
 ```
-npx truebit start-api aws-signature/aws-signature.manifest.json aws-signature/aws-signature.input.json aws-signature "accessKey:<your-key>,secretKey:<your-key>"
+ truebit start-api api-auth/aws-signature/aws-signature.manifest.json api-auth/aws-signature/aws-signature.input.json aws-signature "accessKey:<your-key>,secretKey:<your-key>"
 ```
 
 * deploy command:
 ```
-npx truebit create-api aws-signature/aws-signature.manifest.json
+ truebit create-api api-auth/aws-signature/aws-signature.manifest.json
 
-npx truebit deploy <namespace> <taskname> --taskId <taskId>
+ truebit deploy <namespace> <taskname> --taskId <taskId>
 
-npx truebit api-auth <namespace> <taskname> <taskId> aws-signature "username:<your-username>,password:<your-password>"
+ truebit api-auth <namespace> <taskname> <taskId> aws-signature "username:<your-username>,password:<your-password>"
 ```

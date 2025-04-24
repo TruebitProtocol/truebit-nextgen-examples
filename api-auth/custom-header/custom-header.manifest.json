@@ -5,7 +5,7 @@
       "version": "",
       "description": ""
     },
-    "servers": [{ "url": "http://localhost" }],
+    "servers": [{ "url": "https://httpbin.org" }],
     "paths": {
       "/anything/{Id}": {
         "get": {
