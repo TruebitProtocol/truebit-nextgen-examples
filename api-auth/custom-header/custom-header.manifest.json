@@ -1,9 +1,9 @@
 {
     "openapi": "3.0.3",
     "info": {
-      "title": "test manifest <ts>",
-      "version": "",
-      "description": ""
+      "title": "test custom-header manifest <ts>",
+      "version": "1.0.0",
+      "description": "Helloworld to test custom-header auth"
     },
     "servers": [{ "url": "https://httpbin.org" }],
     "paths": {

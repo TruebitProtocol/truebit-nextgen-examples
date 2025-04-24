@@ -7,11 +7,22 @@
 ```
 
 * deploy command:
+
+First step we run the following command to create the Truebit API Task and upload the Manifest to the local storage. As a result, it returns the taskId.
+
 ```
  truebit create-api api-auth/custom-header/custom-header.manifest.json
+ ```
 
+Next, we run the deploy command with the taskId just returned by create-api command. This deploys and registers a new Truebit task specified by the --taskId parameter. Using the deploy command makes the Truebit task available for execution.
+
+```
  truebit deploy <namespace> <taskname> --taskId <taskId>
+```
 
+At least, run api-auth command that specifies authentication for the truebit api task.
+
+```
  truebit api-auth <namespace> <taskname> <taskId> aws-signature "username:<your-username>,password:<your-password>"
 ```
 
