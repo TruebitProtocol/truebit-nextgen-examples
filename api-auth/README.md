@@ -11,9 +11,9 @@ npx truebit start-api custom-header/custom-header.manifest.json custom-header/cu
 ```
 npx truebit create-api custom-header/custom-header.manifest.json
 
-npx truebit deploy namespace taskname --taskId taskId
+npx truebit deploy <namespace> <taskname> --taskId <taskId>
 
-npx truebit api-auth namespace taskname taskId aws-signature "username:<username>,password:<password>"
+npx truebit api-auth <namespace> <taskname> <taskId> aws-signature "username:<username>,password:<password>"
 ```
 
 # basic-auth:
@@ -21,7 +21,7 @@ npx truebit api-auth namespace taskname taskId aws-signature "username:<username
 * start-api command:
 
 ```
-npx truebit start-api basic-auth/basic-auth.manifest.json basic-auth/basic-auth.input.json basic-auth 'username:foo,password:bar'ç
+npx truebit start-api basic-auth/basic-auth.manifest.json basic-auth/basic-auth.input.json basic-auth 'username:foo,password:bar'
 ```
 
 * deploy command:
@@ -29,16 +29,16 @@ npx truebit start-api basic-auth/basic-auth.manifest.json basic-auth/basic-auth.
 ```
 npx truebit create-api basic-auth/basic-auth.manifest.json
 
-npx truebit deploy namespace taskname --taskId taskId
+npx truebit deploy <namespace> <taskname> --taskId <taskId>
 
-npx truebit api-auth namespace taskname taskId aws-signature "username:<username>,password:<password>"
+npx truebit api-auth <namespace> <taskname> <taskId> aws-signature "username:<username>,password:<password>"
 ```
 
 # aws-signature:
 
 * start-api command:
 ```
-npx truebit start-api aws-signature/aws-signature.manifest.json aws-signature/aws-signature.input.json aws-signature accessKey:key,secretKey:key
+npx truebit start-api aws-signature/aws-signature.manifest.json aws-signature/aws-signature.input.json aws-signature accessKey:<key>,secretKey:<key>
 ```
 
 * deploy command:
@@ -46,7 +46,7 @@ npx truebit start-api aws-signature/aws-signature.manifest.json aws-signature/aw
 ```
 npx truebit create-api aws-signature/aws-signature.manifest.json
 
-npx truebit deploy namespace taskname --taskId taskId
+npx truebit deploy <namespace> <taskname> --taskId <taskId>
 
-npx truebit api-auth namespace taskname taskId aws-signature "username:<username>,password:<password>"
+npx truebit api-auth <namespace> <taskname> <taskId> aws-signature "username:<username>,password:<password>"
 ```
