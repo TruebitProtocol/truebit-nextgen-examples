@@ -38,7 +38,7 @@ truebit api-auth <namespace> <taskname> <taskId> custom-header "username:<userna
 This command executes an API task within the local context of the Truebit Node.
 
 ```
-truebit start-api api-auth/basic-auth/basic-auth.manifest.json api-auth/basic-auth/basic-auth.input.json basic-auth 'token:password'
+truebit start-api api-auth/basic-auth/basic-auth.manifest.json api-auth/basic-auth/basic-auth.input.json basic-auth 'username:<username>,password:<password>'
 ```
 
 **deploy command:**
@@ -57,7 +57,7 @@ truebit deploy <namespace> <taskname> --taskId <taskId>
 At least, run api-auth command that specifies authentication for the truebit api task.
 
 ```
-truebit api-auth <namespace> <taskname> <taskId> basic-auth 'token:password'
+truebit api-auth <namespace> <taskname> <taskId> basic-auth 'username:<username>,password:<password>'
 ```
 
 ## aws-signature:
