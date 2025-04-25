@@ -8,7 +8,7 @@
 This command executes an API task within the local context of the Truebit Node. 
 
 ```
-truebit start-api api-auth/custom-header/custom-header.manifest.json api-auth/custom-header/custom-header.input.json custom-header 'token:password'
+truebit start-api api-auth/custom-header/custom-header.manifest.json api-auth/custom-header/custom-header.input.json custom-header 'username:foo, password:bar'
 ```
 
 **deploy command:**
@@ -28,7 +28,7 @@ truebit deploy <namespace> <taskname> --taskId <taskId>
 At least, run api-auth command that specifies authentication for the truebit api task.
 
 ```
-truebit api-auth <namespace> <taskname> <taskId> aws-signature "username:<your-username>,password:<your-password>"
+truebit api-auth <namespace> <taskname> <taskId> custom-header "username:<username>,password:<password>"
 ```
 
 ## basic-auth:
@@ -38,7 +38,7 @@ truebit api-auth <namespace> <taskname> <taskId> aws-signature "username:<your-u
 This command executes an API task within the local context of the Truebit Node.
 
 ```
-truebit start-api api-auth/basic-auth/basic-auth.manifest.json api-auth/basic-auth/basic-auth.input.json basic-auth 'username:foo,password:bar'
+truebit start-api api-auth/basic-auth/basic-auth.manifest.json api-auth/basic-auth/basic-auth.input.json basic-auth 'token:password'
 ```
 
 **deploy command:**
@@ -57,7 +57,7 @@ truebit deploy <namespace> <taskname> --taskId <taskId>
 At least, run api-auth command that specifies authentication for the truebit api task.
 
 ```
-truebit api-auth <namespace> <taskname> <taskId> aws-signature "username:<your-username>,password:<your-password>"
+truebit api-auth <namespace> <taskname> <taskId> basic-auth 'token:password'
 ```
 
 ## aws-signature:
@@ -67,7 +67,7 @@ truebit api-auth <namespace> <taskname> <taskId> aws-signature "username:<your-u
 This command executes an API task within the local context of the Truebit Node.
 
 ```
-truebit start-api api-auth/aws-signature/aws-signature.manifest.json api-auth/aws-signature/aws-signature.input.json aws-signature "accessKey:<your-key>,secretKey:<your-key>"
+truebit start-api api-auth/aws-signature/aws-signature.manifest.json api-auth/aws-signature/aws-signature.input.json aws-signature "accessKey:AKIA2VXUSRQO3CTJ5UH5,secretKey:DENDxkis705JiztSUjN1CMqABg2iC3V5zBl1zkg2"
 ```
 
 **deploy command:**
@@ -87,5 +87,5 @@ truebit deploy <namespace> <taskname> --taskId <taskId>
 At least, run api-auth command that specifies authentication for the truebit api task.
 
 ```
-truebit api-auth <namespace> <taskname> <taskId> aws-signature "username:<your-username>,password:<your-password>"
+truebit api-auth <namespace> <taskname> <taskId> aws-signature "accessKey:AKIA2VXUSRQO3CTJ5UH5,secretKey:DENDxkis705JiztSUjN1CMqABg2iC3V5zBl1zkg2"
 ```

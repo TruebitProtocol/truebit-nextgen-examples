@@ -1,53 +1,117 @@
 {
-    "openapi": "3.0.3",
-    "info": {
-      "title": "Aws test manifest",
-      "version": "1.0.0",
-      "description": "Helloworld aws api to test aws-signature auth"
-    },
-    "servers": [
-      {
-        "url": "https://4s5sgnwyj1.execute-api.us-east-1.amazonaws.com/POC",
-        "description": "Demo Bookstore Server"
-      }
-    ],
-    "paths": {
-      "/": {
-        "get": {
-          "summary": "get hello world",
-          "description": "get hello world",
-          "responses": {
-            "200": {
-              "description": "Hello world"
+  "openapi": "3.0.3",
+  "info": {
+    "title": "test custom-header manifest <ts>",
+    "version": "1.0.0",
+    "description": "Helloworld to test custom-header auth"
+  },
+  "servers": [{ "url": "https://httpbin.org" }],
+  "paths": {
+    "/anything/{Id}": {
+      "get": {
+        "summary": "",
+        "description": "",
+        "operationId": "get",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
             }
           }
-        },
-        "post": {
-          "summary": "post test",
-          "description": "post test",
-          "requestBody": {
-            "required": true,
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
             "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "test": {
-                      "type": "string",
-                      "example": "test"
-                    }
-                  }
-                }
-              }
+              "application/json": {}
             }
-          },
-          "responses": {
-            "200": {
-              "description": "post test"
+          }
+        }
+      },
+      "delete": {
+        "summary": "",
+        "description": "",
+        "operationId": "delete",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/anything": {
+      "post": {
+        "summary": "",
+        "description": "",
+        "operationId": "post",
+        "requestBody": {
+          "content": {
+            "application/json": {}
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "",
+        "description": "",
+        "operationId": "put",
+        "requestBody": {
+          "content": {
+            "application/json": {}
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "",
+        "description": "",
+        "operationId": "patch",
+        "requestBody": {
+          "content": {
+            "application/json": {}
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {}
             }
           }
         }
       }
     }
   }
-  
+}
