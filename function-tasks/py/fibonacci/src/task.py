@@ -1,3 +1,5 @@
+import sys 
+
 def fibonacci(n):
     """Calculate the nth Fibonacci number iteratively."""
     if n == 0:
@@ -12,36 +14,33 @@ def fibonacci(n):
         b = c
     return c
 
-def run_task(input_string):
-    """Convert input string to integer, compute Fibonacci, and return as string."""
-    return str(fibonacci(int(input_string)))
-
 def main():
     """Main function to read, process, and write Fibonacci number to a file."""
     try:
         with open("input.txt", "r") as file:
             input_string = file.read().strip()
     except FileNotFoundError:
-        print("Error: The file 'input.txt' does not exist.")
-        return
+        print("The input file does not exist", file=sys.stderr)
+        sys.exit(1)
     except Exception as e:
-        print(f"An error occurred while reading 'input.txt': {e}")
-        return
+        print(f"Cannot read input: {e}", file=sys.stderr)
+        sys.exit(1)
 
     try:
-        output_string = run_task(input_string)
-    except ValueError:
-        print("Error: Input must be an integer.")
-        return
+        # Validate that input is a valid integer
+        if not input_string.isdigit():
+            print("Input must be a valid non-negative integer", file=sys.stderr)
+            sys.exit(1)
+        output_string = str(fibonacci(int(input_string)))
     except Exception as e:
-        print(f"An error occurred while processing the input: {e}")
-        return
+        print(f"Error processing the input: {e}", file=sys.stderr)
+        sys.exit(1)
 
     try:
         with open("output.txt", "w") as file:
             file.write(output_string)
     except Exception as e:
-        print(f"An error occurred while writing to 'output.txt': {e}")
+        print(f"Cannot write to 'output.txt': {e}")
 
 if __name__ == "__main__":
     main()
