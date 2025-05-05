@@ -101,6 +101,11 @@ int main() {
       return 1;
     }
     
+    /*    
+      The overall condition ensures that the input in `buf` is either a single digit or a two-digit number. 
+      This validation logic is useful for scenarios where the program expects strictly numeric input of one or two digits, 
+      such as a user entering a number between 0 and 99.
+    */
     if (!buf[0] || (buf[0] < '0' || buf[0] > '9') || (buf[1] && (buf[1] < '0' || buf[1] > '9')) || buf[2] != '\0') {
       fprintf(stderr, "Invalid input");
       return 1;
