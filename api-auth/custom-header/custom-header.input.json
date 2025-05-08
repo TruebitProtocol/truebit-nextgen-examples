@@ -1,0 +1,14 @@
+{
+    "namespace": "namespace1",
+    "taskName": "api1",
+    "input": {
+      "path": "/anything/{Id}",
+      "method": "GET",
+      "params": {
+        "Id": 2
+      }
+    },
+    "executionTimeout": 10000,
+    "async": false
+  }
+  
