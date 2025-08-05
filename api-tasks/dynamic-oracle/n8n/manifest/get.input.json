@@ -1,0 +1,13 @@
+{
+  "namespace": "namespace1",
+  "taskName": "api1",
+  "input": {
+    "path": "/webhook-test/{id}",
+    "method": "GET",
+    "params": {
+      "id": "723a2c8b-ba4a-4344-bdc3-7cd730dc7974"
+    }
+  },
+  "executionTimeout": 10000,
+  "async": false
+}

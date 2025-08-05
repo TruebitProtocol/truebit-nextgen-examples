@@ -1,0 +1,33 @@
+{
+  "name": "n8nflow",
+  "version": "1.0.0",
+  "main": "main.js",
+  "author": {
+    "name": "Truebit Co.",
+    "url": "https://truebit.io/"
+  },
+  "license": "https://truebit.io/terms/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TruebitProtocol"
+  },
+  "homepage": "https://truebit.io/",
+  "dependencies": {
+    "@ethersproject/abi": "^5.8.0",
+    "ethers": "^6.15.0"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@babel/preset-env": "7.28.0",
+    "@rollup/plugin-babel": "6.0.4",
+    "@rollup/plugin-commonjs": "28.0.5",
+    "@rollup/plugin-json": "6.1.0",
+    "@rollup/plugin-node-resolve": "16.0.1",
+    "@rollup/plugin-replace": "6.0.2",
+    "rollup": "4.45.0",
+    "rollup-plugin-dts": "6.2.1",
+    "rollup-plugin-esbuild": "6.2.1",
+    "rollup-plugin-node-builtins": "2.1.2",
+    "rollup-plugin-node-globals": "1.4.0"
+  }
+}
