@@ -1,0 +1,36 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "test manifest <ts>",
+    "version": "",
+    "description": ""
+  },
+  "servers": [{ "url": "http://n8n-node:5678" }],
+  "paths": {
+    "/webhook-test/{id}": {
+      "get": {
+        "summary": "",
+        "description": "",
+        "operationId": "get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "text/html": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
