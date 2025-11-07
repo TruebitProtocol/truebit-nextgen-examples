@@ -1,0 +1,10 @@
+{
+  "input": {
+    "path": "/basic-auth/{user}/{password}",
+    "method": "GET",
+    "params": {
+      "user": "foo",
+      "password": "bar"
+    }
+  }
+}
