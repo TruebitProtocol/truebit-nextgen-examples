@@ -8,8 +8,8 @@
   },
   "servers": [
     {
-      "url": "http://10.1.10.100",
-      "description": "Internal HTTP Bin server"
+      "url": "http://httpbin.io",
+      "description": "HTTP Bin server"
     }
   ],
   "paths": {
