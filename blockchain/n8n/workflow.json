@@ -1,0 +1,288 @@
+{
+  "name": "n8n-workflow-production-v2",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "n8n-workflow-production/:contractAddress/:walletAddress",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1056,
+        -112
+      ],
+      "id": "cb59cb37-026e-4756-b1db-ccdec4c14ce9",
+      "name": "Webhook",
+      "webhookId": "production"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n\"encodedOutput\":\"{{ JSON.parse($json.clearTextSolution.output.data).result }}\",\n\"metaTranscriptIds\":[\"{{ $node['TASKNODE'].json.executionId }}\",\"{{ $node['APINODE'].json.executionId }}\"]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        208,
+        -96
+      ],
+      "id": "51a109e0-37e7-4f0b-812a-880a15270cc3",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://run.truebit.network/task/api/execute-by-name/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "dde86865-001c-4c5c-a9f5-a1131c06264c"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"namespace\":\"a67fa7c8\",\n  \"taskName\": \"direct\",\n   \"input\": {\n    \"url\": \"https://ethereum-rpc.publicnode.com\",\n    \"method\": \"POST\",\n    \"headers\": {\n      \"Content-Type\": \"application/json\"\n    },\n    \"body\": {{ JSON.stringify($json.clearTextSolution.output) }}},\n  \"executionTimeout\": 60000,\n  \"async\": false\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -720,
+        -112
+      ],
+      "id": "411de344-0b63-4916-a994-a0b69bbcd338",
+      "name": "APINODE"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://run.truebit.network/task/function/execute-by-name/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "dde86865-001c-4c5c-a9f5-a1131c06264c"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"namespace\": \"a67fa7c8\",\n  \"taskName\": \"n8nencoder\",\n  \"input\": \"{\\\"contractAddress\\\":\\\"{{ $json.params.contractAddress }}\\\",\\\"functionName\\\":\\\"balanceOf\\\",\\\"paramTypes\\\":[\\\"address\\\"],\\\"paramValues\\\":[\\\"{{ $json.params.walletAddress }}\\\"],\\\"rpcId\\\":\\\"1\\\"}\",\n  \"requiredSolutions\": 2,\n  \"totalSolutions\": 3,\n  \"taskRequesterTimestamp\": 1710262226,\n  \"async\": false\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -880,
+        -112
+      ],
+      "id": "cec7ae45-e1ed-463e-82e4-e00c5a77065a",
+      "name": "TASKNODE"
+    },
+    {
+      "parameters": {
+        "url": "=https://run.truebit.network/task/api/execution-status/{{$json.executionId}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -208,
+        -208
+      ],
+      "id": "23898b9f-ad46-437e-9808-e9e02ee7ceda",
+      "name": "APINODESTATUS"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "eba92bee-ba88-49e6-9c8c-446c693c217c",
+              "leftValue": "={{Object.keys($json).length}}",
+              "rightValue": "={{parseInt(1)}}",
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -560,
+        -112
+      ],
+      "id": "4f224ccd-e00c-4834-9d0b-f7d10b11397d",
+      "name": "IS ASYNC?"
+    },
+    {
+      "parameters": {
+        "amount": 15
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -368,
+        -208
+      ],
+      "id": "6eedc63f-a925-4389-879a-32d9fd89ebec",
+      "name": "Wait",
+      "webhookId": "3950d1e5-4598-4177-8e08-0becde5ff6ab"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "eba92bee-ba88-49e6-9c8c-446c693c217c",
+              "leftValue": "={{$json.status}}",
+              "rightValue": "Running",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -48,
+        -208
+      ],
+      "id": "45bc4180-7c04-4f46-a1d9-2be7ff4e5097",
+      "name": "IS STILL RUNNING?"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "TASKNODE",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "APINODE": {
+      "main": [
+        [
+          {
+            "node": "IS ASYNC?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TASKNODE": {
+      "main": [
+        [
+          {
+            "node": "APINODE",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "APINODESTATUS": {
+      "main": [
+        [
+          {
+            "node": "IS STILL RUNNING?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IS ASYNC?": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "APINODESTATUS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IS STILL RUNNING?": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "f54b0e30-49e7-4528-bd9a-9211812c1230",
+  "meta": {
+    "instanceId": "fb8c5fc0f328f50e5f42180499f1d1c218caa8ed68f0940966779f76250de764"
+  },
+  "id": "1FDpKqWrTgySCMB5",
+  "tags": []
+}

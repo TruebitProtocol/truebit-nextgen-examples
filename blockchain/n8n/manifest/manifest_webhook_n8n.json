@@ -1,0 +1,60 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Truebit N8N Workspace",
+    "version": "",
+    "description": ""
+  },
+  "servers": [{ "url": "https://truebit.app.n8n.cloud" }],
+  "paths": {
+    "/webhook/{id}/{workflowName}/{contractAddress}/{walletAddress}": {
+      "get": {
+        "summary": "",
+        "description": "",
+        "operationId": "get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "workflowName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contractAddress",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "walletAddress",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "text/html": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
